@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-for i in range(9):
-    for j in range(i + 1, 10):
-        if i == 8 and j == 9:
-            print(f"{i}{j}\n", end="")
-        else:
-            print(f"{i}{j}, ", end="")
+combinations = [
+        f"{i}{j}\n" if i == 8 and j == 9 else f"{i}{j}, "
+        for i in range(9)
+        for j in range(i + 1, 10)
+        ]
+print("".join(combinations), end="")
