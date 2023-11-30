@@ -1,5 +1,7 @@
+#!/usr/bin/python3
 def magic_calculation(a, b):
     add, sub = __import__('magic_calculation_102', fromlist=('add', 'sub')).add, __import__('magic_calculation_102', fromlist=('add', 'sub')).sub
+
     if a < b:
         c = add(a, b)
         for i in range(4, 6):
@@ -7,3 +9,7 @@ def magic_calculation(a, b):
         return c
     else:
         return sub(a, b)
+
+# Example usage:
+result = magic_calculation(3, 9)
+print("Result: {}".format(result))
