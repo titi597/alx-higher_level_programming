@@ -9,7 +9,3 @@ def magic_calculation(a, b):
         return c
     else:
         return sub(a, b)
-
-# Example usage:
-result = magic_calculation(3, 9)
-print("Result: {}".format(result))
