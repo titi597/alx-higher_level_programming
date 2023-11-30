@@ -2,9 +2,14 @@
 from sys import argv
 
 if __name__ == "__main__":
-    argc = len(argv)
+    count = len(argv) - 1
 
-    print("{:d} argument{}{}".format(argc - 1, 's' if argc != 2 else '', ':' if argc > 1 else '.'))
+    if count == 0:
+        print("0 arguments.")
+    elif count == 1:
+        print("1 argument:")
+    else:
+        print("{} arguments:".format(count))
 
-    for i in range(1, argc):
-        print("{:d}: {}".format(i, argv[i]))
+    for i in range(1, count + 1):
+        print("{}: {}".format(i, argv[i]))
