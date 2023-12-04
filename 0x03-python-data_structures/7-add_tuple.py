@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
     # Extend tuples to have at least 2 elements
     tuple_a += (0, 0)
