@@ -1,7 +1,7 @@
+#include <stdio.h>
 #include <Python.h>
 #include <object.h>
 #include <listobject.h>
-#include <stdio.h>
 /**
  * print_python_list -function that prints list
  * @p: pointer to an array
