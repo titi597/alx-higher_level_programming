@@ -1,7 +1,7 @@
 #include <Python.h>
 #include <stdio.h>
 /**
- * print_python_list - function that will list
+ * print_python_list - function that prints list
  * @p: pointer to an array
  */
 void print_python_list(PyObject *p)
@@ -22,10 +22,10 @@ void print_python_list(PyObject *p)
 	}
 }
 /**
- * print_python_bytes - function that will print bytes
+ * print_python_bytes - function that prints bytes
  * @p: pointer to an array
  */
-void print_python_bytes(PyObject *p)
+void print_python_bytes(PyObject *p) 
 {
 	Py_ssize_t size, i;
 	char *bytes;
@@ -39,8 +39,15 @@ void print_python_bytes(PyObject *p)
 	}
 	size = PyBytes_Size(p);
 	bytes = PyBytes_AsString(p);
+
+	if (!bytes)
+	{
+		printf("  [ERROR] Invalid Bytes Object\n");
+		return;
+	}
 	printf("  Size: %zd\n", size);
 	printf("  trying string: %s\n", bytes);
+
 	printf("  first 10 bytes: ");
 	for (i = 0; i < size && i < 10; i++)
 	{
