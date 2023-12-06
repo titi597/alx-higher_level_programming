@@ -1,29 +1,22 @@
 #include <Python.h>
-#include <stdio.h>
 /**
- * print_python_list - function that prints list
+ * print_python_list -function that prints list
  * @p: pointer to an array
  */
 void print_python_list(PyObject *p)
 {
-	long int size, allocate, j;
-	const char *type;
-	PyListObject *list = (PyListObject *)p;
-	PyVarObject *var = (PyVarObject *)p;
-
-	size = var->ob_size;
-	allocate = list->allocated;
+	Py_ssize_t size, i;
+	PyObject *element;
 
 	printf("[*] Python list info\n");
-	printf("[*] Size of the Python List = %d\n", size);
-	printf("[*] Allocated = %d\n", allocate);
+	printf("[*] Size of the Python List: %ld\n", PyList_Size(p));
+	printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
 
-	for (j = 0; j < size; j++)
+	size = PyList_Size(p);
+	for (i = 0; i < size; i++)
 	{
-		type = list->ob_item[j]->ob_type->tp_name;
-		printf("Element %d: %s\n", j, type);
-		if (strcmp(type, "bytes") == 0)
-			print_python_bytes(list->ob_item[j]);
+		element = PyList_GetItem(p, i);
+		printf("Element %ld: %s\n", i, Py_TYPE(element)->tp_name);
 	}
 }
 /**
@@ -32,34 +25,30 @@ void print_python_list(PyObject *p)
  */
 void print_python_bytes(PyObject *p)
 {
-	unsigned char size, j;
-	PyBytesObject *bytes = (PyBytesObject *)p;
+	Py_ssize_t size, i;
+	char *bytes;
 
 	printf("[.] bytes object info\n");
 
-	if (strcmp(p->ob_type->tp_name, "bytes") != 0)
+	if (!PyBytes_Check(p))
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
+	size = PyBytes_Size(p);
+	bytes = PyBytes_AsString(p);
 
-	printf("  Size: %ld\n", ((PyVarObject *)p)->ob_size);
-	printf("  trying string: %s\n", bytes->ob_sval);
+	printf("  size: %ld\n", size);
+	printf("  trying string: %s\n", bytes);
 
-	if (((PyVarObject *)p)->ob_size >= 10)
-		size = 10;
-	else
-		size = ((PyVarObject *)p)->ob_size + 1;
-
-	printf("  first %d bytes: ", size);
-
-	for (j = 0; j < size; j++)
+	printf("  first 10 bytes: ");
+	for (i = 0; i < size && i < 10; i++)
 	{
-		printf("%02hhx", bytes->ob_sval[j]);
-
-		if (j == (size - 1))
-			print("\n");
-		else
+		printf("%02hhx", bytes[i]);
+		if (i < 9)
+		{
 			printf(" ");
+		}
 	}
+	printf("\n");
 }
