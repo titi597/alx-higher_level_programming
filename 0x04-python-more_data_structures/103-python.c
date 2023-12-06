@@ -7,7 +7,7 @@
 void print_python_list(PyObject *p)
 {
 	long int size, allocate, j;
-	const char *dv;
+	const char *type;
 	PyListObject *list = (PyListObject *)p;
 	PyVarObject *var = (PyVarObject *)p;
 
@@ -20,9 +20,9 @@ void print_python_list(PyObject *p)
 
 	for (j = 0; j < size; j++)
 	{
-		dv = list->ob_item[j]->ob_type->tp_name;
-		printf("Element %d: %s\n", j, dv);
-		if (strcmp(dv, "bytes") == 0)
+		type = list->ob_item[j]->ob_type->tp_name;
+		printf("Element %d: %s\n", j, type);
+		if (strcmp(type, "bytes") == 0)
 			print_python_bytes(list->ob_item[j]);
 	}
 }
