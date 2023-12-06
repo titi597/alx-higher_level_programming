@@ -6,7 +6,7 @@
  */
 void print_python_list(PyObject *p)
 {
-	long intsize, i;
+	long int size, i;
 	PyListObject *list;
 	PyObject *item;
 
