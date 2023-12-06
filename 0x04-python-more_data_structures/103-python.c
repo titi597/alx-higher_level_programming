@@ -30,7 +30,7 @@ void print_python_list(PyObject *p)
  * print_python_bytes - function that prints bytes
  * @p: pointer to an array
  */
-void print_python_bytes(PyObject *p) 
+void print_python_bytes(PyObject *p)
 {
 	unsigned char size, j;
 	PyBytesObject *bytes = (PyBytesObject *)p;
@@ -47,7 +47,7 @@ void print_python_bytes(PyObject *p)
 	printf("  trying string: %s\n", bytes->ob_sval);
 
 	if (((PyVarObject *)p)->ob_size >= 10)
-	       size = 10;
+		size = 10;
 	else
 		size = ((PyVarObject *)p)->ob_size + 1;
 
@@ -56,7 +56,8 @@ void print_python_bytes(PyObject *p)
 	for (j = 0; j < size; j++)
 	{
 		printf("%02hhx", bytes->ob_sval[j]);
-		if (j == (size -1))
+
+		if (j == (size - 1))
 			print("\n");
 		else
 			printf(" ");
