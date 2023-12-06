@@ -6,23 +6,24 @@
  */
 void print_python_list(PyObject *p)
 {
-	long int size, i;
-	PyListObject *list;
-	PyObject *item;
+	long int size, allocate, j;
+	const char *dv;
+	PyListObject *list = (PyListObject *)p;
+	PyVarObject *var = (PyVarObject *)p;
 
-	size = ((PyVarObject *)(p))->ob_size;
-	list = (PyListObject *)p;
+	size = var->ob_size;
+	allocate = list->allocated;
 
 	printf("[*] Python list info\n");
-	printf("[*] Size of the Python List = %ld\n", size);
-	printf("[*] Allocated = %ld\n", list->allocated);
+	printf("[*] Size of the Python List = %d\n", size);
+	printf("[*] Allocated = %d\n", allocate);
 
-	for (i = 0; i < size; i++)
+	for (j = 0; j < size; j++)
 	{
-		item = ((PyListObject *)p)->ob_item[i];
-		printf("Element %ld: %s\n", i, ((item)->ob_type)->tp_name);
-		if (PyBytes_Check(item))
-			print_python_bytes(item);
+		dv = list->ob_item[j]->ob_type->tp_name;
+		printf("Element %d: %s\n", j, dv);
+		if (strcmp(dv, "bytes") == 0)
+			print_python_bytes(list->ob_item[j]);
 	}
 }
 /**
@@ -31,35 +32,33 @@ void print_python_list(PyObject *p)
  */
 void print_python_bytes(PyObject *p) 
 {
-	long int size, i, apt;
-	char *bytes;
+	unsigned char size, j;
+	PyBytesObject *bytes = (PyBytesObject *)p;
 
 	printf("[.] bytes object info\n");
 
-	if (!PyBytes_Check(p))
+	if (strcmp(p->ob_type->tp_name, "bytes") != 0)
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
-	size = ((PyVarObject *)(p))->ob_size;
-	bytes = ((PyBytesObject *)p)->ob_sval;
 
-	printf("  Size: %ld\n", size);
-	printf("  trying string: %s\n", bytes);
+	printf("  Size: %ld\n", ((PyVarObject *)p)->ob_size);
+	printf("  trying string: %s\n", bytes->ob_sval);
 
-	if (size >= 10)
-		apt = 10;
+	if (((PyVarObject *)p)->ob_size >= 10)
+	       size = 10;
 	else
-		apt = size + 1;
+		size = ((PyVarObject *)p)->ob_size + 1;
 
-	printf("  first %ld bytes:", apt);
+	printf("  first %d bytes: ", size);
 
-	for (i = 0; i < apt;; i++)
+	for (j = 0; j < size; j++)
 	{
-		if (bytes[i] > 0)
-			printf(" %02x", bytes[i]);
+		printf("%02hhx", bytes->ob_sval[j]);
+		if (j == (size -1))
+			print("\n");
 		else
-			printf(" %02x", 256 + bytes[i]);
+			printf(" ");
 	}
-	printf("\n");
 }
