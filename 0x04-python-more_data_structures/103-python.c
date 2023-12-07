@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <Python.h>
-#include <object.h>
-#include <listobject.h>
 /**
  * print_python_list -function that prints list
  * @p: pointer to an array
@@ -18,8 +16,17 @@ void print_python_list(PyObject *p)
 	size = ((PyVarObject *)p)->ob_size;
 	for (i = 0; i < size; i++)
 	{
-		element = ((PyListObject *)p)->ob_item[i];
-		printf("Element %ld: %s\n", i, Py_TYPE(element)->tp_name);
+		if (PySequence_Check(p))
+		{
+			element = PyObject_GetItem(p, PyLong_FromSsize_t(i));
+			if (element == NULL)
+			{
+				PyErr_Print();
+				return;
+			}
+			printf("Element %ld: %s\n", i, element->ob_type->tp_name);
+			Py_DECREF(element);
+		}
 	}
 }
 /**
@@ -45,9 +52,11 @@ void print_python_bytes(PyObject *p)
 	printf("  trying string: %s\n", bytes);
 
 	printf("  first 10 bytes: ");
+
 	for (i = 0; i < size && i < 10; i++)
 	{
 		printf("%02hhx", bytes[i]);
+
 		if (i < 9)
 		{
 			printf(" ");
