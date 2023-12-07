@@ -4,6 +4,7 @@
  * print_python_list -function that prints list
  * @p: pointer to an array
  */
+
 void print_python_list(PyObject *p)
 {
 	Py_ssize_t size, i;
@@ -24,7 +25,18 @@ void print_python_list(PyObject *p)
 				PyErr_Print();
 				return;
 			}
-			printf("Element %ld: %s\n", i, element->ob_type->tp_name);
+			if (PyBytes_Check(element))
+			{
+				printf("Element %ld: %s\n", i, "bytes");
+			}
+			else if (PyUnicode_Check(element))
+			{
+				printf("Element %ld: %s\n", i, "str");
+			}
+			else
+			{
+				printf("Element %ld: %s\n", i, element->ob_type->tp_name);
+			}
 			Py_DECREF(element);
 		}
 	}
