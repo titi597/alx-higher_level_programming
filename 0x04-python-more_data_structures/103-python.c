@@ -46,7 +46,7 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 	size = ((PyVarObject *)p)->ob_size;
-	bytes = ((PyBytesObject *)p)->ob_sval;
+	bytes = PyBytes_AsString(p);
 
 	printf("  size: %ld\n", size);
 	printf("  trying string: %s\n", bytes);
