@@ -2,15 +2,16 @@
 def safe_print_list(my_list=[], x=0):
     count = 0
     try:
-        for i in range(x):
-            print("{}".format(my_list[i]), end="")
+        while True:
+            print("{}".format(my_list[count]), end="")
             count += 1
+            if count == x:
+                break
     except IndexError:
         pass
     finally:
         print()
     return count
-
 if __name__ == "__main__":
     my_list = [1, 2, 3, 4, 5]
 
