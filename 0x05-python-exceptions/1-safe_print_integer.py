@@ -4,7 +4,7 @@ def safe_print_integer(value):
     """Print an integer with "{:d}".format().
 
     Args:
-        value (int): The value to print.
+        value (int): The integer value to print.
 
     Returns:
         If a TypeError or ValueError occurs - False.
