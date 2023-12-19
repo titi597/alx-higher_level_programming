@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
-"""Singly linked list"""
+"""Singly linked list."""
 
 
 class Node:
-    """a class Node that defines a node"""
+    """a class Node that defines a node."""
 
     def __init__(self, data, next_node=None):
         """Initializing a node.
@@ -43,7 +43,7 @@ class Node:
             self.__next_node = value
 
 class SinglyLinkedList:
-    """a class SinglyLinkedList that defines a singly linked"""
+    """a class SinglyLinkedList that defines a singly linked."""
 
     def __init__(self):
         """initializing list."""
