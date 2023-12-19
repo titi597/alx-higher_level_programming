@@ -4,8 +4,9 @@
 
 import math
 
+
 class MagicClass:
-    """fucntioning magic class"""
+    """fucntioning magic class."""
 
     def __init__(self, radius=0):
         """initializing.
@@ -18,9 +19,9 @@ class MagicClass:
         self.__radius = radius
 
     def area(self):
-        """displaying area"""
-        return self.__radius ** 2 * math.pi
+        """displaying area."""
+        return (self.__radius ** 2 * math.pi)
 
     def circumference(self):
-        """displayingperimeter"""
-        return 2 * math.pi * self.__radius
+        """displaying perimeter."""
+        return (2 * math.pi * self.__radius)
