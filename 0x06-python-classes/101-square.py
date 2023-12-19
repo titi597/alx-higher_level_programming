@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Print Square instance."""
+
+"""a class Square that defines a square"""
 
 
 class Square:
@@ -50,7 +51,8 @@ class Square:
         """"print out the current area of the square."""
         if self.__size == 0:
             print("")
-            return
+        return
+
         [print("") for j in range(0, self.__position[1])]
         for j in range(0, self.__size):
             [print(" ", end="") for k in range(0, self.__position[0])]
