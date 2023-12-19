@@ -27,8 +27,7 @@ class Square:
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
 
     @property
     def position(self):
@@ -51,20 +50,21 @@ class Square:
     def my_print(self):
         """"print out the current area of the square."""
         if self.__size == 0:
-            print()
-        else:
-            for _ in range(self.__position[1]):
-                print()
-            for _ in range(self.__size):
-                print(" " * self.__position[0] + "#" * self.__size)
+            print("")
+            return
+        [print("") for j in range(0, self.__position[1])]
+        for j in range(0, self.__size):
+            [print(" ", end="") for k in range(0, self.__position[0])]
+            [print("#", end="") for l in range(0, self.__size)]
+            print("")
 
     def __str__(self):
         """defining the print function for a square."""
-        result = ""
-        for _ in range(self.__position[1]):
-            result += "\n"
         if self.__size != 0:
-            for _ in range(self.__size - 1):
-                result += " " * self.__position[0] + "#" * self.__size + "\n"
-            result += " " * self.__position[0] + "#" * self.__size
-        return (result)
+            [print("") for j in range(0, self.__position[1])]
+        for j in range(0, self.__size):
+            [print(" ", end="") for k in range(0, self.__position[0])]
+            [print("#", end="") for l in range(0, self.__size)]
+            if j != self.__size - 1:
+                print("")
+        return ("")
