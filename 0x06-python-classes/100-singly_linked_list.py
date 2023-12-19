@@ -31,9 +31,6 @@ class Node:
         else:
             self.__next_node = value
 
-"""a class SinglyLinkedList that defines a singly linked list"""
-
-
 class SinglyLinkedList:
     """defines SinglyLinkedList"""
 
