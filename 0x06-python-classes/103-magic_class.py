@@ -8,7 +8,10 @@ class MagicClass:
     """fucntioning magic class"""
 
     def __init__(self, radius=0):
-        """defining init"""
+        """initializing
+        Args:
+        radius: length of side of the square.
+        """
 
         self.__radius = 0
 
