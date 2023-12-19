@@ -11,7 +11,7 @@ class MagicClass:
     def __init__(self, radius=0):
         """initializing.
         Arg:
-            radius (float or int: length of side of the square.
+            radius (float or int): length of side of the square.
         """
         self.__radius = 0
         if type(radius) is not int and type(radius) is not float:
