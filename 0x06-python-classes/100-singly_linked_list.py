@@ -19,7 +19,7 @@ class Node:
     @property
     def data(self):
         """set the data of the node."""
-        return self.__data
+        return (self.__data)
 
     @data.setter
     def data(self, value):
@@ -31,7 +31,7 @@ class Node:
     @property
     def next_node(self):
         """set next_node of the node."""
-        return self.__next_node
+        return (self.__next_node)
 
     @next_node.setter
     def next_node(self, value):
@@ -69,4 +69,4 @@ class SinglyLinkedList:
         while current:
             result += str(current.data) + "\n"
             current = current.next_node
-        return result.strip()
+        return (result.strip())
