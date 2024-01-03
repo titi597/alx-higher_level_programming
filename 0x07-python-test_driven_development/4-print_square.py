@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """print squares."""
+
 def print_square(size):
     """a function that prints a square with the character #."""
     # Check if size is an integer
