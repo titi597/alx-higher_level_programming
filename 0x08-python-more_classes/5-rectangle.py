@@ -43,12 +43,19 @@ class Rectangle:
 
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
-            return ""
-        else:
-            return "\n".join(["#" * self.__width for _ in range(self.__height)])
+            return ("")
+
+        ret = []
+        for i in range(self.__height):
+            [ret.append('#') for j in range(self.__width)]
+            if i != self.__height - 1:
+                ret.append("\n")
+        return ("".join(ret))
 
     def __repr__(self):
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+        ret = "Rectangle(" + str(self.__width)
+        ret += ", " + str(self.__height) + ")"
+        return (ret)
 
     def __del__(self):
         print("Bye rectangle...")
