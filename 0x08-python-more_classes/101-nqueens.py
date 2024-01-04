@@ -22,6 +22,7 @@ def is_safe(board, row, col, N):
 
     return True
 
+
 def solve_nqueens(board, col, N):
     if col >= N:
         print_solution(board)
@@ -36,6 +37,7 @@ def solve_nqueens(board, col, N):
 
     return res
 
+
 def print_solution(board):
     solution = []
     for i in range(len(board)):
@@ -45,6 +47,7 @@ def print_solution(board):
     solution.sort()  # Sort the solution based on the first element
     print(solution)
     print()
+
 
 def nqueens(N):
     if not N.isdigit():
