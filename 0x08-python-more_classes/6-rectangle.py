@@ -54,18 +54,25 @@ class Rectangle:
 
     def perimeter(self):
         """returning the perimeter."""
-        return 2 * (self.__width + self.__height) if self.__width > 0 and self.__height > 0 else 0
+        if self.__width == 0 or self.__height == 0:
+            return (0)
+        return ((self.__width * 2) + (self.__height * 2))
 
     def __str__(self):
-        """returning the printable rectangle."""
         if self.__width == 0 or self.__height == 0:
-            return ""
-        else:
-            return "\n".join(["#" * self.__width for _ in range(self.__height)])
+            return ("")
+
+        ret = []
+        for i in range(self.__height):
+            [ret.append('#') for j in range(self.__width)]
+            if i != self.__height - 1:
+                ret.append("\n")
+        return ("".join(ret))
 
     def __repr__(self):
-        """returning the string of the rectangle."""
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+        ret = "Rectangle(" + str(self.__width)
+        ret += ", " + str(self.__height) + ")"
+        return (ret)
 
     def __del__(self):
         """printing message for deletion of rectangle."""
