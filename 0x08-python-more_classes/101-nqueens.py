@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-"""N queens."""
-
 import sys
 
 
@@ -67,6 +65,8 @@ def print_solution(board):
 
 
 def nqueens(N):
+    """defining the nqueens."""
+
     if not N.isdigit():
         print("N must be a number")
         sys.exit(1)
