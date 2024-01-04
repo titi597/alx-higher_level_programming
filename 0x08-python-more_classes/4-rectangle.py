@@ -5,6 +5,12 @@
 class Rectangle:
     """defines a rectangle by: (based on 3-rectangle.py)."""
     def __init__(self, width=0, height=0):
+        """Initializing rectangle.
+
+        Args:
+        width (int): The width of the  rectangle.
+        height (int): The height of the rectangle.
+        """
         self.width = width
         self.height = height
 
@@ -44,7 +50,8 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
         else:
-            return "\n".join(["#" * self.__width for _ in range(self.__height)])
+            return "\n".join(["#" * self.__width
+                for _ in range(self.__height)])
 
     def __repr__(self):
         return "Rectangle({}, {})".format(self.__width, self.__height)
