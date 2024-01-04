@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """class Rectangle."""
+
+
 class Rectangle:
     """defines a rectangle by: (based on 0-rectangle.py)."""
 
@@ -17,6 +19,7 @@ class Rectangle:
     def height(self):
         """setting the height of the rectangle."""
         return self.__height
+
     @height.setter
     def height(self, value):
         if not isinstance(value, int):
