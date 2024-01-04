@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import sys
 
+
 def is_safe(board, row, col, N):
     """Check if there is a queen in the same row on the left side.
     
@@ -25,6 +26,7 @@ def is_safe(board, row, col, N):
     return True
 
 
+
 def solve_nqueens(board, col, N):
     """solving the queens.
 
@@ -47,6 +49,7 @@ def solve_nqueens(board, col, N):
     return res
 
 
+
 def print_solution(board):
     """printing the solutions.
 
@@ -60,6 +63,8 @@ def print_solution(board):
                 solution.append([i, j])
     solution.sort()
     print(solution, end="\n")
+
+
 
 def nqueens(N):
     """defining the nqueens."""
@@ -76,6 +81,7 @@ def nqueens(N):
 
     board = [[0 for _ in range(N)] for _ in range(N)]
     solve_nqueens(board, 0, N)
+
 
 
 if __name__ == "__main__":
