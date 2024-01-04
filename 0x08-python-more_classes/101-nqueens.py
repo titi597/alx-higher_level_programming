@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import sys
 
-
 def is_safe(board, row, col, N):
     """Check if there is a queen in the same row on the left side.
     
