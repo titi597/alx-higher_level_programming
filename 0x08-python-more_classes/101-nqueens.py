@@ -60,7 +60,7 @@ def print_solution(board):
             if board[i][j] == 1:
                 solution.append([i, j])
     solution.sort()
-    print(solution)
+    print(solution, end="\n"))
     print()
 
 
