@@ -5,17 +5,22 @@ import sys
 
 
 def is_safe(board, row, col, N):
-    # Check if there is a queen in the same row on the left side
+    """Check if there is a queen in the same row on the left side.
+    
+    Args:
+        board (list): The current working chessboard.
+        row (int): The row where a queen was last played.
+        col (int): The column where a queen was last played.
+        N (int): queens.
+    """
     for i in range(col):
         if board[row][i] == 1:
             return False
 
-    # Check upper diagonal on the left side
     for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
         if board[i][j] == 1:
             return False
 
-    # Check lower diagonal on the left side
     for i, j in zip(range(row, N, 1), range(col, -1, -1)):
         if board[i][j] == 1:
             return False
@@ -24,6 +29,13 @@ def is_safe(board, row, col, N):
 
 
 def solve_nqueens(board, col, N):
+    """solving the queens.
+
+    Args:
+        board (list): The current working chessboar.
+        col (int): The column where a queen was last played.
+        N (int): queens.
+    """
     if col >= N:
         print_solution(board)
         return True
@@ -39,12 +51,17 @@ def solve_nqueens(board, col, N):
 
 
 def print_solution(board):
+    """printing the solutions.
+
+    Args:
+        board (list): the curent working chesssboar.
+    """
     solution = []
     for i in range(len(board)):
         for j in range(len(board[i])):
             if board[i][j] == 1:
                 solution.append([i, j])
-    solution.sort()  # Sort the solution based on the first element
+    solution.sort()
     print(solution)
     print()
 
