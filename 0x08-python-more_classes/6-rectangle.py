@@ -4,11 +4,10 @@
 
 class Rectangle:
     """defines a rectangle by: (based on 5-rectangle.py).
-    
-    Attributes:
-            number_of_instances (int): the number of Rectangle instances.
-    """
 
+    Attributes:
+        number_of_instances (int): the number of Rectangle instances.
+    """
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
