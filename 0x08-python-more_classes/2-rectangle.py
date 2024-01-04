@@ -6,11 +6,18 @@ class Rectangle:
     """defines a rectangle by: (based on 1-rectangle.py)."""
 
     def __init__(self, width=0, height=0):
+        """Initializing rectangle.
+
+        Args:
+            width (int): the width of the rectangle.
+            height (int): the height of the rectangle.
+        """
         self.width = width
         self.height = height
 
     @property
     def width(self):
+        """setting the width of the rectangle."""
         return self.__width
 
     @width.setter
@@ -23,6 +30,7 @@ class Rectangle:
 
     @property
     def height(self):
+        """setting the height of the rectangle."""
         return self.__height
 
     @height.setter
@@ -34,7 +42,9 @@ class Rectangle:
         self.__height = value
 
     def area(self):
+        """returning the area of the ractangle."""
         return self.__width * self.__height
 
     def perimeter(self):
+        """returning the perimeter of the rectangle."""
         return 2 * (self.__width + self.__height) if self.__width > 0 and self.__height > 0 else 0
