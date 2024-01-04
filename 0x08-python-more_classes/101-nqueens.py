@@ -62,7 +62,6 @@ def print_solution(board):
     solution.sort()
     print(solution, end="\n")
 
-
 def nqueens(N):
     """defining the nqueens."""
 
