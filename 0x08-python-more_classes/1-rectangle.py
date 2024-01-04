@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-
 """class Rectangle."""
+
 
 class Rectangle:
     """defines a rectangle by: (based on 0-rectangle.py)."""
@@ -11,7 +11,7 @@ class Rectangle:
         Args:
             height (int): height (int): The height of the rectangle.
             width (int): The width of the rectangle.
-            """
+        """
         self.height = height
         self.width = width
 
