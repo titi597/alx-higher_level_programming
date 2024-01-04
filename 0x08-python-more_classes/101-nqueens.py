@@ -61,7 +61,6 @@ def print_solution(board):
                 solution.append([i, j])
     solution.sort()
     print(solution, end="\n"))
-    print()
 
 
 def nqueens(N):
