@@ -80,6 +80,7 @@ def nqueens(N):
     board = [[0 for _ in range(N)] for _ in range(N)]
     solve_nqueens(board, 0, N)
 
+
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
