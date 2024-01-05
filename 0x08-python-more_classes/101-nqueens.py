@@ -4,7 +4,6 @@ import sys
 
 def is_safe(board, row, col, N):
     """Check if there is a queen in the same row on the left side.
-    
     Args:
         board (list): The current working chessboard.
         row (int): The row where a queen was last played.
@@ -24,6 +23,7 @@ def is_safe(board, row, col, N):
             return False
 
     return True
+
 
 def solve_nqueens(board, col, N):
     """solving the queens.
@@ -46,6 +46,7 @@ def solve_nqueens(board, col, N):
 
     return res
 
+
 def print_solution(board):
     """printing the solutions.
 
@@ -60,6 +61,7 @@ def print_solution(board):
     solution.sort()
     print(solution, end="\n")
 
+
 def nqueens(N):
     """defining the nqueens."""
     if not N.isdigit():
@@ -67,13 +69,14 @@ def nqueens(N):
         sys.exit(1)
 
     N = int(N)
-    
+
     if N < 4:
         print("N must be at least 4")
         sys.exit(1)
 
     board = [[0 for _ in range(N)] for _ in range(N)]
     solve_nqueens(board, 0, N)
+
 
 if __name__ == "__main__":
     """main function."""
