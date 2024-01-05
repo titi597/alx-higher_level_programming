@@ -25,8 +25,6 @@ def is_safe(board, row, col, N):
 
     return True
 
-
-
 def solve_nqueens(board, col, N):
     """solving the queens.
 
@@ -48,8 +46,6 @@ def solve_nqueens(board, col, N):
 
     return res
 
-
-
 def print_solution(board):
     """printing the solutions.
 
@@ -64,11 +60,8 @@ def print_solution(board):
     solution.sort()
     print(solution, end="\n")
 
-
-
 def nqueens(N):
     """defining the nqueens."""
-
     if not N.isdigit():
         print("N must be a number")
         sys.exit(1)
@@ -81,7 +74,6 @@ def nqueens(N):
 
     board = [[0 for _ in range(N)] for _ in range(N)]
     solve_nqueens(board, 0, N)
-
 
 if __name__ == "__main__":
     """main function."""
