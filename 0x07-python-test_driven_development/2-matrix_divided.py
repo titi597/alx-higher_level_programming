@@ -1,12 +1,17 @@
 #!/usr/bin/python3
 """dividing matrix."""
 
+
 def matrix_divided(matrix, div):
     """a function that divides all elements of a matrix."""
 
     # Check if matrix is a list of lists of integers or floats
-    if not all(isinstance(row, list) and all(isinstance(num, (int, float)) for num in row) for row in matrix):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+    if (not isinstance(matrix, list) or matrix == [] or
+            not all(isinstance(row, list) for row in matrix) or
+            not all((isinstance(ele, int) or isinstance(ele, float))
+                    for ele in [num for row in matrix for num in row])):
+        raise TypeError("matrix must be a matrix (list of lists) of "
+                        "integers/floats")
 
     # Check if each row of the matrix has the same size
     if not all(len(row) == len(matrix[0]) for row in matrix):
@@ -21,6 +26,6 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError("division by zero")
 
     # Divide all elements of the matrix by div and round to 2 decimal places
-    new_matrix = [[round(num / div, 2) for num in row] for row in matrix]
+    new_matrix = [[round(nm / div, 2) for nm in row] for row in matrix]
 
     return new_matrix
