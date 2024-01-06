@@ -1,0 +1,60 @@
+=================================
+How to Use 101-lazy_matrix_mul.py
+=================================
+
+This module defines a matrix multiplication function
+``lazy_matrix_mul(m_a, m_b)``.
+
+Usage
+=====
+
+``lazy_matrix_mul(...)`` returns a new matrix representing the multiplication
+of ``m_a`` by ``m_b``.
+
+The function also works with floating-point numbers.
+
+::
+
+    >>> m_a = [[1, 2]]
+    >>> m_b = [
+    ... [3, 4],
+    ... [5, 6]
+    ... ]
+
+::
+
+    >>> m_a = [
+    ... [1.2, 5.5, 6.2],
+    ... [4.66, 12.3, -9.2]
+    ... ]
+    >>> m_b = [
+    ... [5.0, 3.3],
+    ... [-2.9, 4.4],
+    ... [7.2, 4.4]
+    ... ]
+
+::
+
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4],
+    ... ]
+    >>> m_b = m_a
+
+A minimum of two arguments must be provided.
+
+Invalid Matrices
+================
+
+The parameters ``m_a`` and ``m_b`` must be lists. If either parameter is
+not a list, a ValueError is raised.
+
+Not just any list - they *must* be lists of lists! Otherwise, behavior is
+undefined.
+
+And not just any list of lists - they *must* be lists of lists containing
+integers or floats! Otherwise, a ValueError or TypeError is raised
+
+Finally, the length of all rows in matrices ``m_a`` and ``m_b`` should be
+equivalent. Otherwise, a ValueError is raised.
