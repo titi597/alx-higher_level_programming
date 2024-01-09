@@ -10,6 +10,7 @@ def append_after(filename="", search_string="", new_string=""):
         search_string (str): The string to search for within the file.
         new_string (str): The string to insert.
     """
+    text = ""
     with open(filename) as ropt:
         for line in ropt:
             text += line
