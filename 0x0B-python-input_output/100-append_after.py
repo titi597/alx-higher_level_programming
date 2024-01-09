@@ -10,15 +10,10 @@ def append_after(filename="", search_string="", new_string=""):
         search_string (str): The string to search for within the file.
         new_string (str): The string to insert.
     """
-    try:
-        with open(filename, 'r', encoding='utf-8') as file:
-            lines = file.readlines()
-
-        with open(filename, 'w', encoding='utf-8') as file:
-            for line in lines:
-                file.write(line)
-                if search_string in line:
-                    file.write(new_string)
-
-    except FileNotFoundError:
-        pass  # Do nothing if the file is not found
+    with open(filename) as ropt:
+        for line in ropt:
+            text += line
+            if search_string in line:
+                text += new_string
+    with open(filename, "w") as w:
+        w.write(text)
