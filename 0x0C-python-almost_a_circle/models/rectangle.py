@@ -102,8 +102,12 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("{} must be >= 0".format(attr_name))
 
-    def update(self, *args):
-        """Update attributes with the given arguments"""
+    def update(self, *args, **kwargs):
+        """Update attributes with the given argument or key-worded arguments"""
         attrs = ["id", "width", "height", "x", "y"]
-        for i, arg in enumerate(args):
-            setattr(self, attrs[i], arg)
+        if args:
+            for i, arg in enumerate(args):
+                setattr(self, attrs[i], arg)
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
