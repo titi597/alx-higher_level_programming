@@ -4,9 +4,7 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """
-    Rectangle class, inherits from Base
-    """
+    """Rectangle class, inherits from Base."""
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Constructor for Rectangle class
@@ -75,6 +73,11 @@ class Rectangle(Base):
     def area(self):
         """Calculate and return the area of the rectangle"""
         return self.__width * self.__height
+
+    def display(self):
+        """Print the Rectangle instance with the character #"""
+        for _ in range(self.__height):
+            print("#" * self.__width)
 
     def validate_integer(self, attr_name, value):
         """Validate if the given value is an integer"""
