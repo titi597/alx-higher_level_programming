@@ -101,3 +101,9 @@ class Rectangle(Base):
         """Validate if the given value is greater than or equal to 0"""
         if value < 0:
             raise ValueError("{} must be >= 0".format(attr_name))
+
+    def update(self, *args):
+        """Update attributes with the given arguments"""
+        attrs = ["id", "width", "height", "x", "y"]
+        for i, arg in enumerate(args):
+            setattr(self, attrs[i], arg)
