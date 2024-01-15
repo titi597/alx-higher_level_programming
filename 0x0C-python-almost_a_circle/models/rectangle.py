@@ -79,6 +79,12 @@ class Rectangle(Base):
         for _ in range(self.__height):
             print("#" * self.__width)
 
+    def __str__(self):
+        """Override the __str__ method"""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+                self.id, self.__x, self.__y, self.__width, self.__height
+                )
+
     def validate_integer(self, attr_name, value):
         """Validate if the given value is an integer"""
         if not isinstance(value, int):
